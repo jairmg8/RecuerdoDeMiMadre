@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NVIDIA</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <link href="css/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top backgroud-color">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="source/img/logo_empresa.png" alt="" class="icono"/>
+        </a>
+           <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">VENTAS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">INVENTARIO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">PRODUCTOS</a>
+              </li>
+              <li class="nav-item">
+
+                <a
+                  class="nav-link"
+                  href="#"
+                  id="open-logen"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+                  >LOGIN</a
+                >
+
+              </li>
+            </ul>       
+          
+      </div>
+    </nav>
+    <!-- Carrusel de empresas con la que trabaja-->
+     <div class="carrusel">
+      <div class="carrusel-track">
+        <img src="./source/img/empresas/naturalmedix.png" alt="Natural Medix"/>
+        <img src="./source/img/empresas/santa_natura.png" alt="Santa Natura"/>
+        <img src="./source/img/empresas/Bio_naturista.png" alt="Bio Naturista"/>
+        <img src="./source/img/empresas/fito_sana.jpg" alt="Fito Sana"/>
+        <img src="./source/img/empresas/natural_pluss.jfif" alt="Natural Pluss"/>
+        <!-- repetir logos para el bucle infinito -->
+        <img src="./source/img/empresas/vida_natural.png" alt="Vida Natural"/>
+        <img src="./source/img/empresas/bio_natural.jfif" alt="Bio Natural"/>
+        <img src="./source/img/empresas/natural_products.png" alt="Natural Products"/>
+      </div>
+    </div>
+    <!--- Informacion de Pagina-->
+      <div class="Fondo d-flex align-items-center text-white">
+      <div class="container">
+        <div class="d-flex flex-column text-start">
+          <h1 class="display-4 fw-bold rojo-logo">Recuerdo de mi Madre</h1>
+          <p class="mb-3 verde-logo">En Recuerdo de mi Madre creemos en la fuerza de lo natural y en la belleza de las flores</p>
+          <p class="mb-3 verde-logo">como un símbolo eterno de vida, amor y bienestar.</p>
+          <p class="lead col-12 col-md-8 col-lg-6 verde-logo">
+            Con más de 20 años de experiencia en la venta de flores, en Recuerdo de mi Madre nos especializamos en crear arreglos florales que transmiten emociones y acompañan cada momento especial de tu vida.
+            Desde hace 5 años, ampliamos nuestra pasión por lo natural con la venta de medicina natural y plantas medicinales, brindando a nuestros clientes productos de calidad que promueven el bienestar y la salud de manera tradicional y confiable.
+          
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔹 Modal Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow p-4">
+          <!-- Alerta registro exitoso -->
+          <div
+            id="alertaRegistro"
+            class="alert alert-success text-center d-none"
+            role="alert"
+          >
+            ✅ Registro exitoso. Ahora puedes iniciar sesión.
+          </div>
+
+          <!-- Formulario login -->
+          <h3 class="text-center mb-4">Iniciar Sesión</h3>
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="username" class="form-label">Usuario</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Ingresa tu usuario"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Ingresa tu contraseña"
+                required
+              />
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="remember" />
+              <label class="form-check-label" for="remember">Recordarme</label>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+          </form>
+
+          <hr class="my-4" />
+          <p class="text-center mb-0">
+            ¿No tienes cuenta?
+            <a href="#" id="linkRegistro">Regístrate</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔹 Modal Registro -->
+    <div class="modal fade" id="registroModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow">
+          <div class="modal-header">
+            <h5 class="modal-title">Registro de Usuario</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="registroForm">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" required />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="email" required />
+              </div>
+              <div class="mb-3">
+                <label for="usuario" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="usuario" required />
+              </div>
+              <div class="mb-3">
+                <label for="clave" class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="clave"
+                  required
+                />
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-success">
+                  Registrarme
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+
+  
+    <div class="container col-12">
+      <div class="row">
+       <div class="container py-5">
+  <div class="row text-center mb-4" data-aos="fade-up">
+    <div class="col-12">
+      <h2 class="fw-bold">PRODUCTOS DESTACADOS</h2>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-md-4" data-aos="fade-up">
+      <div class="card h-100 border-success shadow-lg hover-shadow">
+        <img
+          src="https://developer-blogs.nvidia.com/wp-content/uploads/2025/07/llama-nemotron-reasoning-press-1920x1080-1-1536x864-jpg.webp"
+          class="card-img-top img-fluid"
+          alt="GeForce Nvidia"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Inteligencia artificial</h5>
+          <p class="card-text">
+            Cree agentes de IA más precisos y eficientes con el nuevo NVIDIA
+            Llama Nemotron Super v1.5​
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <a
+            class="btn btn-outline-success w-100"
+            href="https://developer.nvidia.com/blog/build-more-accurate-and-efficient-ai-agents-with-the-new-nvidia-llama-nemotron-super-v1-5/"
+            target="_blank"
+            >Visita la web</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4" data-aos="fade-up">
+      <div class="card h-100 border-success shadow-lg hover-shadow">
+        <img
+          src="https://blogs.nvidia.com/wp-content/uploads/2025/08/amazon-featured-1280x680-1.jpg"
+          class="card-img-top img-fluid"
+          alt="Robotica Nvidia"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Robótica</h5>
+          <p class="card-text">
+            Amazon Devices & Services logra un gran paso hacia la
+            fabricación sin contacto con NVIDIA AI y gemelos digitales​
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <a
+            class="btn btn-outline-success w-100"
+            href="https://blogs.nvidia.com/blog/amazon-zero-touch-manufacturing/"
+            target="_blank"
+            >Visita la web</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4" data-aos="fade-up">
+      <div class="card h-100 border-success shadow-lg hover-shadow">
+        <img
+          src="https://blogs.nvidia.com/wp-content/uploads/2024/11/alchemi-nim-featured-1280x680-1.jpg"
+          class="card-img-top img-fluid"
+          alt="Simulacion Nvidia"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Simulación</h5>
+          <p class="card-text">
+            De algoritmos a átomos: NVIDIA ALCHEMI NIM cataliza la
+            investigación de materiales sostenibles para baterías de
+            vehículos eléctricos, paneles solares y más​
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <a
+            class="btn btn-outline-success w-100"
+            href="https://blogs.nvidia.com/blog/alchemi-nim/?nvid=nv-int-csfg-509304"
+            target="_blank"
+            >Visita la web</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <!-- AOS JS -->
+     <script src="js/registro.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

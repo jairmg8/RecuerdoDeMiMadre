@@ -1,0 +1,123 @@
+h1 {
+  text-shadow: 2px 2px 2px rgba(30, 29, 29, 0.5);
+}
+
+.p1 {
+  color: rgba(1, 1, 1, 0.773);
+  text-shadow: 2px 2px 4px rgba(30, 29, 29, 0.5);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+.Fondo {
+  background-image: url('../source/img/fondo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+  width: 100%;
+}
+.Fondo {
+  position: relative;
+}
+
+.Fondo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* aquí ajustas la opacidad */
+  z-index: 1;
+}
+
+.Fondo > * {
+  position: relative;
+  z-index: 2; /* mantiene tu texto visible encima */
+}   
+
+.card {
+  transition: all 0.3s ease; /* para que la animación sea suave */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 1.5rem rgba(0,0,0,0.2);
+}
+.carrusel {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #ffffff;      /* opcional */
+  padding: 10px 0;
+}
+
+.carrusel-track {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+.carrusel img {
+  height: 25px;
+  margin: 0 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+body {
+  padding-top: 80px; /* deja espacio para la navbar fija */
+}
+.navbar.fixed-top {
+  padding-top: 0.3rem;   
+  padding-bottom: 0.3rem; 
+  height: 70px;           
+}
+
+.navbar .navbar-brand img {
+  height: 20px;           
+  width: auto;
+}
+/* Botones de control del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+  background: transparent; /* sin fondo */
+  border: none;
+}
+
+/* Íconos de flechas en verde */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: transparent !important; /* sin fondo */
+  filter: invert(61%) sepia(96%) saturate(748%) hue-rotate(83deg) brightness(95%) contrast(95%);
+  /* ese filtro genera el verde rgb(29, 221, 0) */
+  width: 3rem;   /* tamaño de la flecha */
+  height: 3rem;  /* tamaño de la flecha */
+}
+/* Fondo del modal borroso */
+.modal-backdrop.show {
+  backdrop-filter: blur(8px);  /* difumina lo que está detrás */
+  background-color: rgba(0, 0, 0, 0.4); /* un poco de oscuridad */
+}
+
+.icono{
+  height: 100px !important;
+  width: auto;
+}
+
+.rojo-logo{
+  color :#e2243b
+}
+
+/*color : #27963b;*/
+.verde-logo{
+  color : #224629;
+  font-weight: bold;
+}
+
+.backgroud-color{
+  background-color: #95939363;
+}
