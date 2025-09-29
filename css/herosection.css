@@ -1,0 +1,26 @@
+
+.rojo-logo{
+  color :#e2243b
+}
+
+/*color : #27963b;*/
+.verde-logo{
+  color : #224629;
+  font-weight: bold;
+}
+
+.backgroud-color{
+  background-color: #95939363;
+}
+
+.backgroud-color{
+  background-color: #95939363;
+}
+.Fondo {
+  background-image: url('../source/img/fondo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+  width: 100%;
+}
