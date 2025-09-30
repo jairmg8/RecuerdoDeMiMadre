@@ -1,14 +1,17 @@
 <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
   <div class="container">
-    <a class="navbar-brand d-md-none" href="#">
+    <a class="navbar-brand d-md-none" href="#" id="logoMobile">
       <svg class="bi" width="24" height="24" aria-hidden="true">
         <use xlink:href="#aperture"></use>
       </svg>
       Recuerdo De Mi Madre
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+      aria-controls="offcanvas" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasLabel">Menú</h5>
@@ -16,13 +19,17 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav flex-grow-1 justify-content-between">
-          <li class="nav-item"><img src="/source/img/nombre_empresa.png" alt="logo header" style="width: 90px;"/></li>
-          <li class="nav-item"><a class="nav-link" href="#">Ventas</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Compras</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Clientes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Usuarios</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Configuraciones</a></li>
+          <li class="nav-item">
+            <a href="#" id="logoDesktop">
+              <img src="/source/img/nombre_empresa.png" alt="logo header" style="width: 90px;" />
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/pages/ventas/ventas.html">Ventas</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pages/compras/compras.html">Compras</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pages/productos/productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pages/clientes/clientes.html">Clientes</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pages/usuarios/usuarios.html">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pages/config/config.html">Configuraciones</a></li>
         </ul>
       </div>
     </div>

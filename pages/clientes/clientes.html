@@ -1,0 +1,119 @@
+<!-- CSS específico de clientes -->
+<link href="/css/clientes.css" rel="stylesheet">
+
+<!-- Contenido de la página de clientes -->
+<div class="container mt-4">
+  <h1 class="page-title text-center mb-4">Sistema de Gestión de Clientes</h1>
+  
+  <!-- Formulario de clientes -->
+  <div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="section-title mb-0">
+        <i class="fas fa-user-plus me-2"></i>
+        <span id="form-title">Nuevo Cliente</span>
+      </h5>
+    </div>
+    <div class="card-body">
+      <form id="clienteForm" class="needs-validation" novalidate>
+        <input type="hidden" id="clienteId" />
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre *</label>
+            <input type="text" class="form-control" id="nombre" required />
+            <div class="invalid-feedback">El nombre es obligatorio</div>
+          </div>
+          <div class="col-md-6">
+            <label for="apellido" class="form-label">Apellido *</label>
+            <input type="text" class="form-control" id="apellido" required />
+            <div class="invalid-feedback">El apellido es obligatorio</div>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email *</label>
+            <input type="email" class="form-control" id="email" required />
+            <div class="invalid-feedback">Ingrese un email válido</div>
+          </div>
+          <div class="col-md-6">
+            <label for="telefono" class="form-label">Teléfono *</label>
+            <input type="tel" class="form-control" id="telefono" required />
+            <div class="invalid-feedback">El teléfono es obligatorio</div>
+          </div>
+          <div class="col-md-6">
+            <label for="dni" class="form-label">DNI *</label>
+            <input type="text" class="form-control" id="dni" required />
+            <div class="invalid-feedback">El DNI es obligatorio</div>
+          </div>
+          <div class="col-md-6">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" />
+          </div>
+          <div class="col-12 mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save me-2"></i>Guardar
+            </button>
+            <button type="button" id="btnCancelar" class="btn btn-secondary">
+              <i class="fas fa-times me-2"></i>Cancelar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Listado de clientes -->
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="section-title mb-0">
+        <i class="fas fa-users me-2"></i>Listado de Clientes
+      </h5>
+      <span class="badge bg-primary rounded-pill" id="totalClientes">0</span>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+              <th>DNI</th>
+              <th>Dirección</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="clientesTableBody">
+            <!-- Los clientes se cargarán aquí dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div
+    id="notification"
+    class="toast align-items-center text-white border-0"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="d-flex">
+      <div class="toast-body">
+        <i id="notificationIcon" class="fas fa-check-circle me-2"></i>
+        <span id="notificationMessage"></span>
+      </div>
+      <button
+        type="button"
+        class="btn-close btn-close-white me-2 m-auto"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+</div>
+
+<!-- JS específico de clientes (debe cargarse AL FINAL) -->
+<script src="/js/clientes.js" defer></script>

@@ -19,3 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
   loadComponent("features", "layout/component/FeatureBlock.html");
   loadComponent("footer", "layout/component/Footer.html");
 });
+
+
