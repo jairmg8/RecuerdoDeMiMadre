@@ -1,0 +1,35 @@
+ <div class="login-card">
+    <div class="login-header">
+      <h2>🌸 NaturVida</h2>
+      <p>Flores & Medicina Natural</p>
+    </div>
+    <div class="p-4">
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Usuario</label>
+          <input type="text" class="form-control" id="usuario" placeholder="Ingresa tu usuario" required>
+        </div>
+        <div class="mb-3">
+          <label for="clave" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="clave" placeholder="Ingresa tu contraseña" required>
+        </div>
+        <button type="submit" class="btn btn-login w-100 text-white">Ingresar</button>
+      </form>
+      <p class="brand-note">🌿 Bienvenido al sistema de gestión de ventas de flores y medicina natural.</p>
+    </div>
+  </div>
+ <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const user = document.getElementById("usuario").value;
+      const pass = document.getElementById("clave").value;
+
+      // Validación básica de ejemplo
+      if(user === "admin" && pass === "1234"){
+        alert("✅ Bienvenido al sistema, " + user + "!");
+        window.location.href = "dashboard.html"; // redirige a tu panel principal
+      } else {
+        alert("❌ Usuario o contraseña incorrectos");
+      }
+    });
+  </script>

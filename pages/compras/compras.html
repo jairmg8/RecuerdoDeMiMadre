@@ -115,4 +115,182 @@
     </div>
 </div>
 
-<script src="/js/compras.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const compraForm = document.getElementById("compraForm");
+  const comprasTableBody = document.getElementById("comprasTableBody");
+  const totalCompras = document.getElementById("totalCompras");
+  const detalleCompra = document.getElementById("detalleCompra");
+  const btnAddProducto = document.getElementById("btnAddProducto");
+  const subtotalDisplay = document.getElementById("subtotalDisplay");
+  const igvInput = document.getElementById("igv");
+  const totalDisplay = document.getElementById("totalDisplay");
+
+  const proveedorSelect = document.getElementById("idProveedor");
+  const usuarioSelect = document.getElementById("idUsuario");
+
+  let compras = JSON.parse(localStorage.getItem("compras")) || [];
+  let productosTemp = [];
+
+  // ====== Datos precargados ======
+  const proveedores = [
+    { id: 1, nombre: "Proveedor Flores Lima" },
+    { id: 2, nombre: "Distribuidora Natural Vida" },
+    { id: 3, nombre: "Proveedor Hierbas Andinas" }
+  ];
+
+  const usuarios = [
+    { id: 1, nombre: "Geancarlo" },
+    { id: 2, nombre: "Jair" },
+    { id: 3, nombre: "Administrador" }
+  ];
+
+  // Renderizar combos
+  function renderCombos() {
+    proveedores.forEach(p => {
+      const opt = document.createElement("option");
+      opt.value = p.nombre;
+      opt.textContent = p.nombre;
+      proveedorSelect.appendChild(opt);
+    });
+
+    usuarios.forEach(u => {
+      const opt = document.createElement("option");
+      opt.value = u.nombre;
+      opt.textContent = u.nombre;
+      usuarioSelect.appendChild(opt);
+    });
+  }
+
+  // ====== Funciones Auxiliares ======
+  function renderTable() {
+    comprasTableBody.innerHTML = "";
+    compras.forEach((c, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${c.id}</td>
+        <td>${c.numeroComprobante}</td>
+        <td>${c.proveedor}</td>
+        <td>${c.usuario}</td>
+        <td>${c.fecha}</td>
+        <td>S/ ${c.total.toFixed(2)}</td>
+        <td><span class="badge bg-success">Registrado</span></td>
+        <td>
+          <button class="btn btn-sm btn-danger" onclick="eliminarCompra(${index})">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      `;
+      comprasTableBody.appendChild(row);
+    });
+    totalCompras.textContent = compras.length;
+  }
+
+  function guardarLocal() {
+    localStorage.setItem("compras", JSON.stringify(compras));
+  }
+
+  function resetForm() {
+    compraForm.reset();
+    productosTemp = [];
+    detalleCompra.innerHTML = "";
+    subtotalDisplay.value = "0.00";
+    totalDisplay.value = "0.00";
+    igvInput.value = "0.00";
+  }
+
+  // ====== Productos Dinámicos ======
+  btnAddProducto.addEventListener("click", () => {
+    const row = document.createElement("div");
+    row.classList.add("row", "g-2", "align-items-end", "mb-2");
+    row.innerHTML = `
+      <div class="col-md-5">
+        <input type="text" class="form-control productoNombre" placeholder="Producto" required />
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control productoCantidad" placeholder="Cant." value="1" min="1" required />
+      </div>
+      <div class="col-md-3">
+        <input type="number" class="form-control productoPrecio" placeholder="Precio" value="0.00" step="0.01" required />
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-outline-danger btnRemove">X</button>
+      </div>
+    `;
+    detalleCompra.appendChild(row);
+
+    row.querySelector(".btnRemove").addEventListener("click", () => {
+      row.remove();
+      calcularTotales();
+    });
+
+    row.querySelectorAll("input").forEach(input =>
+      input.addEventListener("input", calcularTotales)
+    );
+  });
+
+  // ====== Calcular Totales ======
+  function calcularTotales() {
+    let subtotal = 0;
+    productosTemp = [];
+    document.querySelectorAll("#detalleCompra .row").forEach(row => {
+      const nombre = row.querySelector(".productoNombre").value;
+      const cantidad = parseFloat(row.querySelector(".productoCantidad").value) || 0;
+      const precio = parseFloat(row.querySelector(".productoPrecio").value) || 0;
+      const total = cantidad * precio;
+      subtotal += total;
+
+      productosTemp.push({ nombre, cantidad, precio, total });
+    });
+
+    const igv = parseFloat(igvInput.value) || 0;
+    const totalFinal = subtotal + igv;
+
+    subtotalDisplay.value = subtotal.toFixed(2);
+    totalDisplay.value = totalFinal.toFixed(2);
+  }
+
+  igvInput.addEventListener("input", calcularTotales);
+
+  // ====== Guardar Compra ======
+  compraForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    calcularTotales();
+
+    const nuevaCompra = {
+      id: Date.now(),
+      proveedor: proveedorSelect.value,
+      usuario: usuarioSelect.value,
+      tipoComprobante: document.getElementById("tipoComprobante").value,
+      numeroComprobante: document.getElementById("numeroComprobante").value,
+      observaciones: document.getElementById("observaciones").value,
+      productos: productosTemp,
+      subtotal: parseFloat(subtotalDisplay.value),
+      igv: parseFloat(igvInput.value),
+      total: parseFloat(totalDisplay.value),
+      fecha: new Date().toLocaleDateString()
+    };
+
+    compras.push(nuevaCompra);
+    guardarLocal();
+    renderTable();
+    resetForm();
+  });
+
+  // ====== Cancelar ======
+  document.getElementById("btnCancelar").addEventListener("click", resetForm);
+
+  // ====== Eliminar Compra ======
+  window.eliminarCompra = (index) => {
+    if (confirm("¿Seguro que desea eliminar esta compra?")) {
+      compras.splice(index, 1);
+      guardarLocal();
+      renderTable();
+    }
+  };
+
+  // ====== Inicializar ======
+  renderCombos();
+  renderTable();
+});
+</script>

@@ -1,4 +1,3 @@
-
 async function loadComponent(id, path) {
   try {
     const res = await fetch(path);
@@ -12,8 +11,8 @@ async function loadComponent(id, path) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadComponent("svg-symbols", "layout/component/SvgSymbols.html");
-  loadComponent("theme-toggle", "layout/component/ThemeToggle.html");
+  //loadComponent("svg-symbols", "layout/component/SvgSymbols.html");
+  //loadComponent("theme-toggle", "layout/component/ThemeToggle.html");
   loadComponent("header", "layout/component/Header.html");
   loadComponent("hero", "layout/component/HeroSection.html");
   loadComponent("features", "layout/component/FeatureBlock.html");

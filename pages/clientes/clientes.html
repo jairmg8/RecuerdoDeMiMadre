@@ -1,51 +1,100 @@
-<!-- CSS específico de clientes -->
-<link href="css/pages/clientes.css" rel="stylesheet" />
-
-<!-- Contenido de la página de clientes -->
 <div class="container mt-4">
-  <h1 class="page-title text-center mb-4">Gestión de Clientes</h1>
+  <h1 class="page-title text-center mb-4">Gestión de Clientes / Proveedores</h1>
 
-  <!-- Formulario de clientes -->
+  <!-- Formulario -->
   <div class="card mb-4">
     <div class="card-header d-flex justify-content-between align-items-center">
       <h5 class="section-title mb-0">
         <i class="fas fa-user-plus me-2"></i>
-        <span id="form-title">Nuevo Cliente</span>
+        <span id="form-title">Nuevo Registro</span>
       </h5>
     </div>
     <div class="card-body">
       <form id="clienteForm" class="needs-validation" novalidate>
         <input type="hidden" id="clienteId" />
         <div class="row g-3">
-          <div class="col-md-6">
-            <label for="nombre" class="form-label">Nombre *</label>
-            <input type="text" class="form-control" id="nombre" required />
-            <div class="invalid-feedback">El nombre es obligatorio</div>
+          <!-- Tipo Documento -->
+          <div class="col-md-4">
+            <label for="tipoDocumento" class="form-label">Tipo de Documento *</label>
+            <select class="form-select" id="tipoDocumento" required>
+              <option value="" selected disabled>Seleccione...</option>
+              <option value="dni">DNI</option>
+              <option value="ruc">RUC</option>
+              <option value="ce">Carné Extranjería</option>
+              <option value="pasaporte">Pasaporte</option>
+            </select>
+            <div class="invalid-feedback">Seleccione un tipo de documento</div>
           </div>
-          <div class="col-md-6">
-            <label for="apellido" class="form-label">Apellido *</label>
-            <input type="text" class="form-control" id="apellido" required />
-            <div class="invalid-feedback">El apellido es obligatorio</div>
+
+          <!-- Nro Documento -->
+          <div class="col-md-4">
+            <label for="nroDocumento" class="form-label">Nro Documento *</label>
+            <input type="text" class="form-control" id="nroDocumento" required />
+            <div class="invalid-feedback">El nro documento es obligatorio</div>
           </div>
-          <div class="col-md-6">
-            <label for="email" class="form-label">Email *</label>
-            <input type="email" class="form-control" id="email" required />
-            <div class="invalid-feedback">Ingrese un email válido</div>
+
+          <!-- Nombres Completos -->
+          <div class="col-md-4">
+            <label for="nombres" class="form-label">Nombres Completos *</label>
+            <input type="text" class="form-control" id="nombres" required />
+            <div class="invalid-feedback">Los nombres son obligatorios</div>
           </div>
-          <div class="col-md-6">
-            <label for="telefono" class="form-label">Teléfono *</label>
-            <input type="tel" class="form-control" id="telefono" required />
-            <div class="invalid-feedback">El teléfono es obligatorio</div>
-          </div>
-          <div class="col-md-6">
-            <label for="dni" class="form-label">DNI *</label>
-            <input type="text" class="form-control" id="dni" required />
-            <div class="invalid-feedback">El DNI es obligatorio</div>
-          </div>
+
+          <!-- Dirección -->
           <div class="col-md-6">
             <label for="direccion" class="form-label">Dirección</label>
             <input type="text" class="form-control" id="direccion" />
           </div>
+
+          <!-- Tipo -->
+          <div class="col-md-6">
+            <label for="tipo" class="form-label">Tipo *</label>
+            <select class="form-select" id="tipo" required>
+              <option value="" selected disabled>Seleccione...</option>
+              <option value="cliente">Cliente</option>
+              <option value="proveedor">Proveedor</option>
+              <option value="ambos">Cliente / Proveedor</option>
+            </select>
+            <div class="invalid-feedback">Seleccione el tipo</div>
+          </div>
+
+          <!-- Alias -->
+          <div class="col-md-4">
+            <label for="alias" class="form-label">Alias</label>
+            <input type="text" class="form-control" id="alias" />
+          </div>
+
+          <!-- Género -->
+          <div class="col-md-4">
+            <label for="genero" class="form-label">Género</label>
+            <select class="form-select" id="genero">
+              <option value="" selected disabled>Seleccione...</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="col-md-4">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" />
+          </div>
+
+          <!-- Correo Electrónico -->
+          <div class="col-md-6">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" />
+            <div class="invalid-feedback">Ingrese un email válido</div>
+          </div>
+
+          <!-- Datos Adicionales -->
+          <div class="col-md-6">
+            <label for="datosAdicionales" class="form-label">Datos Adicionales</label>
+            <textarea class="form-control" id="datosAdicionales" rows="2"></textarea>
+          </div>
+
+          <!-- Botones -->
           <div class="col-12 mt-4 d-flex gap-2">
             <button type="submit" class="btn btn-primary">
               <i class="fas fa-save me-2"></i>Guardar
@@ -59,11 +108,11 @@
     </div>
   </div>
 
-  <!-- Listado de clientes -->
+  <!-- Listado -->
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
       <h5 class="section-title mb-0">
-        <i class="fas fa-users me-2"></i>Listado de Clientes
+        <i class="fas fa-users me-2"></i>Listado de Clientes / Proveedores
       </h5>
       <span class="badge bg-primary rounded-pill" id="totalClientes">0</span>
     </div>
@@ -73,17 +122,21 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Email</th>
-              <th>Teléfono</th>
-              <th>DNI</th>
+              <th>Tipo Doc.</th>
+              <th>Nro Doc.</th>
+              <th>Nombres</th>
               <th>Dirección</th>
+              <th>Tipo</th>
+              <th>Alias</th>
+              <th>Género</th>
+              <th>Teléfono</th>
+              <th>Email</th>
+              <th>Datos Adicionales</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody id="clientesTableBody">
-            <!-- Los clientes se cargarán aquí dinámicamente -->
+            <!-- Los registros se cargarán aquí dinámicamente -->
           </tbody>
         </table>
       </div>
@@ -114,5 +167,246 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  // Referencias DOM
+  const clienteForm = document.getElementById("clienteForm");
+  const formTitle = document.getElementById("form-title");
+  const clienteId = document.getElementById("clienteId");
+  const tipoDocumento = document.getElementById("tipoDocumento");
+  const nroDocumento = document.getElementById("nroDocumento");
+  const nombres = document.getElementById("nombres");
+  const direccion = document.getElementById("direccion");
+  const tipo = document.getElementById("tipo");
+  const alias = document.getElementById("alias");
+  const genero = document.getElementById("genero");
+  const telefono = document.getElementById("telefono");
+  const email = document.getElementById("email");
+  const datosAdicionales = document.getElementById("datosAdicionales");
+  const btnCancelar = document.getElementById("btnCancelar");
+  const clientesTableBody = document.getElementById("clientesTableBody");
+  const totalClientes = document.getElementById("totalClientes");
+  const notification = document.getElementById("notification");
+  const notificationIcon = document.getElementById("notificationIcon");
+  const notificationMessage = document.getElementById("notificationMessage");
 
-<script src="./pages/clientes/clientes.js"></script>
+  // Variables globales
+  let clientes = [];
+  let editando = false;
+
+  // Inicializar
+  init();
+
+  function init() {
+    const storedClientes = localStorage.getItem("clientes");
+    if (storedClientes) {
+      clientes = JSON.parse(storedClientes);
+    } else {
+      // Datos de ejemplo
+      clientes = [
+        {
+          id: 1,
+          tipoDocumento: "DNI",
+          nroDocumento: "12345678",
+          nombres: "Juan Pérez",
+          direccion: "Av. Principal 123",
+          tipo: "cliente",
+          alias: "Juancito",
+          genero: "masculino",
+          telefono: "999111222",
+          email: "juan@example.com",
+          datosAdicionales: "Cliente frecuente",
+        },
+        {
+          id: 2,
+          tipoDocumento: "RUC",
+          nroDocumento: "20123456789",
+          nombres: "Insumos SAC",
+          direccion: "Jr. Comercio 456",
+          tipo: "proveedor",
+          alias: "Insumos",
+          genero: "",
+          telefono: "987654321",
+          email: "contacto@insumos.com",
+          datosAdicionales: "Proveedor de papelería",
+        },
+      ];
+      saveClientes();
+    }
+
+    renderizarTabla();
+    clienteForm.addEventListener("submit", handleSubmit);
+    btnCancelar.addEventListener("click", limpiarFormulario);
+  }
+
+  function renderizarTabla() {
+    clientesTableBody.innerHTML = "";
+    totalClientes.textContent = clientes.length;
+
+    if (clientes.length === 0) {
+      const row = document.createElement("tr");
+      row.innerHTML =
+        '<td colspan="12" class="text-center py-4">No hay registros</td>';
+      clientesTableBody.appendChild(row);
+      return;
+    }
+
+    clientes.forEach((cliente) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${cliente.id}</td>
+        <td>${cliente.tipoDocumento}</td>
+        <td>${cliente.nroDocumento}</td>
+        <td>${cliente.nombres}</td>
+        <td>${cliente.direccion || "-"}</td>
+        <td>${cliente.tipo}</td>
+        <td>${cliente.alias || "-"}</td>
+        <td>${cliente.genero || "-"}</td>
+        <td>${cliente.telefono || "-"}</td>
+        <td>${cliente.email || "-"}</td>
+        <td>${cliente.datosAdicionales || "-"}</td>
+        <td>
+          <button class="btn btn-sm btn-warning edit-btn" data-id="${cliente.id}" title="Editar">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="btn btn-sm btn-danger delete-btn" data-id="${cliente.id}" title="Eliminar">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      `;
+      clientesTableBody.appendChild(row);
+
+      row.querySelector(".edit-btn").addEventListener("click", () => editarCliente(cliente.id));
+      row.querySelector(".delete-btn").addEventListener("click", () => eliminarCliente(cliente.id));
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!clienteForm.checkValidity()) {
+      e.stopPropagation();
+      clienteForm.classList.add("was-validated");
+      return;
+    }
+
+    if (editando) {
+      actualizarCliente();
+    } else {
+      agregarCliente();
+    }
+    clienteForm.classList.remove("was-validated");
+  }
+
+  function agregarCliente() {
+    const nuevoId = clientes.length > 0 ? Math.max(...clientes.map((c) => c.id)) + 1 : 1;
+
+    const nuevoCliente = {
+      id: nuevoId,
+      tipoDocumento: tipoDocumento.value,
+      nroDocumento: nroDocumento.value.trim(),
+      nombres: nombres.value.trim(),
+      direccion: direccion.value.trim(),
+      tipo: tipo.value,
+      alias: alias.value.trim(),
+      genero: genero.value,
+      telefono: telefono.value.trim(),
+      email: email.value.trim(),
+      datosAdicionales: datosAdicionales.value.trim(),
+    };
+
+    clientes.push(nuevoCliente);
+    saveClientes();
+    renderizarTabla();
+    limpiarFormulario();
+    mostrarNotificacion("success", "Registro agregado correctamente");
+  }
+
+  function editarCliente(id) {
+    const cliente = clientes.find((c) => c.id === id);
+    if (!cliente) return;
+
+    editando = true;
+    formTitle.textContent = "Editar Registro";
+
+    clienteId.value = cliente.id;
+    tipoDocumento.value = cliente.tipoDocumento;
+    nroDocumento.value = cliente.nroDocumento;
+    nombres.value = cliente.nombres;
+    direccion.value = cliente.direccion || "";
+    tipo.value = cliente.tipo;
+    alias.value = cliente.alias || "";
+    genero.value = cliente.genero || "";
+    telefono.value = cliente.telefono || "";
+    email.value = cliente.email || "";
+    datosAdicionales.value = cliente.datosAdicionales || "";
+
+    clienteForm.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function actualizarCliente() {
+    const id = parseInt(clienteId.value);
+    const index = clientes.findIndex((c) => c.id === id);
+    if (index === -1) return;
+
+    clientes[index] = {
+      id: id,
+      tipoDocumento: tipoDocumento.value,
+      nroDocumento: nroDocumento.value.trim(),
+      nombres: nombres.value.trim(),
+      direccion: direccion.value.trim(),
+      tipo: tipo.value,
+      alias: alias.value.trim(),
+      genero: genero.value,
+      telefono: telefono.value.trim(),
+      email: email.value.trim(),
+      datosAdicionales: datosAdicionales.value.trim(),
+    };
+
+    saveClientes();
+    renderizarTabla();
+    limpiarFormulario();
+    mostrarNotificacion("success", "Registro actualizado correctamente");
+  }
+
+  function eliminarCliente(id) {
+    if (!confirm("¿Está seguro de eliminar este registro?")) return;
+
+    clientes = clientes.filter((c) => c.id !== id);
+    saveClientes();
+    renderizarTabla();
+
+    if (editando && parseInt(clienteId.value) === id) limpiarFormulario();
+    mostrarNotificacion("warning", "Registro eliminado correctamente");
+  }
+
+  function limpiarFormulario() {
+    editando = false;
+    formTitle.textContent = "Nuevo Registro";
+    clienteId.value = "";
+    clienteForm.reset();
+    clienteForm.classList.remove("was-validated");
+  }
+
+  function saveClientes() {
+    localStorage.setItem("clientes", JSON.stringify(clientes));
+  }
+
+  function mostrarNotificacion(tipo, mensaje) {
+    notification.className = "toast align-items-center text-white border-0";
+    if (tipo === "success") {
+      notification.classList.add("bg-success");
+      notificationIcon.className = "fas fa-check-circle me-2";
+    } else if (tipo === "warning") {
+      notification.classList.add("bg-warning");
+      notificationIcon.className = "fas fa-exclamation-circle me-2";
+    } else {
+      notification.classList.add("bg-danger");
+      notificationIcon.className = "fas fa-times-circle me-2";
+    }
+    notificationMessage.textContent = mensaje;
+    notification.classList.add("show");
+    setTimeout(() => notification.classList.remove("show"), 3000);
+  }
+});
+
+</script>

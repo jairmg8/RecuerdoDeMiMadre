@@ -1,0 +1,360 @@
+<!-- =======================
+ Módulo de Configuraciones
+======================== -->
+<div class="container my-5">
+  <h2 class="text-center mb-4">Módulo de Configuraciones</h2>
+
+  <!-- Nav Tabs -->
+  <ul class="nav nav-tabs" id="configTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pagos-tab" data-bs-toggle="tab" data-bs-target="#pagos" type="button" role="tab">Medios de Pago</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="series-tab" data-bs-toggle="tab" data-bs-target="#series" type="button" role="tab">Series Facturas/Boletas</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="moneda-tab" data-bs-toggle="tab" data-bs-target="#moneda" type="button" role="tab">Tipos de Moneda</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="unidades-tab" data-bs-toggle="tab" data-bs-target="#unidades" type="button" role="tab">Unidades de Medida</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="impuestos-tab" data-bs-toggle="tab" data-bs-target="#impuestos" type="button" role="tab">Impuestos</button>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content border border-top-0 p-4" id="configTabsContent">
+    <!-- Medios de Pago -->
+    <div class="tab-pane fade show active" id="pagos" role="tabpanel">
+      <h4>Medios de Pago</h4>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalPago">+ Nuevo Medio de Pago</button>
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Efectivo</td>
+            <td>
+              <button class="btn btn-sm btn-warning">Editar</button>
+              <button class="btn btn-sm btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Series de Facturas y Boletas -->
+    <div class="tab-pane fade" id="series" role="tabpanel">
+      <h4>Series Facturas y Boletas</h4>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalSerie">+ Nueva Serie</button>
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Serie</th>
+            <th>Correlativo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Factura</td>
+            <td>F001</td>
+            <td>000123</td>
+            <td>
+              <button class="btn btn-sm btn-warning">Editar</button>
+              <button class="btn btn-sm btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tipos de Moneda -->
+    <div class="tab-pane fade" id="moneda" role="tabpanel">
+      <h4>Tipos de Moneda</h4>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalMoneda">+ Nueva Moneda</button>
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Moneda</th>
+            <th>Símbolo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Dólar Americano</td>
+            <td>$</td>
+            <td>
+              <button class="btn btn-sm btn-warning">Editar</button>
+              <button class="btn btn-sm btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Unidades de Medida -->
+    <div class="tab-pane fade" id="unidades" role="tabpanel">
+      <h4>Unidades de Medida</h4>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalUnidad">+ Nueva Unidad</button>
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Unidad</th>
+            <th>Símbolo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Kilogramo</td>
+            <td>Kg</td>
+            <td>
+              <button class="btn btn-sm btn-warning">Editar</button>
+              <button class="btn btn-sm btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Impuestos -->
+    <div class="tab-pane fade" id="impuestos" role="tabpanel">
+      <h4>Impuestos</h4>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalImpuesto">+ Nuevo Impuesto</button>
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Porcentaje</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>IGV</td>
+            <td>18%</td>
+            <td>
+              <button class="btn btn-sm btn-warning">Editar</button>
+              <button class="btn btn-sm btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ================
+   MODALES CRUD
+================ -->
+<!-- Modal Medio de Pago -->
+<div class="modal fade" id="modalPago" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Nuevo Medio de Pago</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" placeholder="Ej: Transferencia bancaria">
+          </div>
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Puedes duplicar la estructura anterior para: modalSerie, modalMoneda, modalUnidad, modalImpuesto -->
+<script>
+  // ==============================
+  // Datos iniciales
+  // ==============================
+  let pagos = [
+    { id: 1, nombre: "Efectivo" },
+    { id: 2, nombre: "Tarjeta de Crédito" }
+  ];
+
+  let series = [
+    { id: 1, tipo: "Factura", serie: "F001", correlativo: "000123" },
+    { id: 2, tipo: "Boleta", serie: "B001", correlativo: "000045" }
+  ];
+
+  let monedas = [
+    { id: 1, nombre: "Dólar Americano", simbolo: "$" },
+    { id: 2, nombre: "Sol Peruano", simbolo: "S/" }
+  ];
+
+  let unidades = [
+    { id: 1, nombre: "Kilogramo", simbolo: "Kg" },
+    { id: 2, nombre: "Litro", simbolo: "L" }
+  ];
+
+  let impuestos = [
+    { id: 1, nombre: "IGV", porcentaje: 18 },
+    { id: 2, nombre: "ISC", porcentaje: 10 }
+  ];
+
+  // ==============================
+  // Renderizar tablas
+  // ==============================
+  function renderPagos() {
+    const tbody = document.querySelector("#pagos table tbody");
+    tbody.innerHTML = "";
+    pagos.forEach(p => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${p.id}</td>
+          <td>${p.nombre}</td>
+          <td>
+            <button class="btn btn-sm btn-warning" onclick="editPago(${p.id})">Editar</button>
+            <button class="btn btn-sm btn-danger" onclick="deletePago(${p.id})">Eliminar</button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  function renderSeries() {
+    const tbody = document.querySelector("#series table tbody");
+    tbody.innerHTML = "";
+    series.forEach(s => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${s.id}</td>
+          <td>${s.tipo}</td>
+          <td>${s.serie}</td>
+          <td>${s.correlativo}</td>
+          <td>
+            <button class="btn btn-sm btn-warning">Editar</button>
+            <button class="btn btn-sm btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  function renderMonedas() {
+    const tbody = document.querySelector("#moneda table tbody");
+    tbody.innerHTML = "";
+    monedas.forEach(m => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${m.id}</td>
+          <td>${m.nombre}</td>
+          <td>${m.simbolo}</td>
+          <td>
+            <button class="btn btn-sm btn-warning">Editar</button>
+            <button class="btn btn-sm btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  function renderUnidades() {
+    const tbody = document.querySelector("#unidades table tbody");
+    tbody.innerHTML = "";
+    unidades.forEach(u => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${u.id}</td>
+          <td>${u.nombre}</td>
+          <td>${u.simbolo}</td>
+          <td>
+            <button class="btn btn-sm btn-warning">Editar</button>
+            <button class="btn btn-sm btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  function renderImpuestos() {
+    const tbody = document.querySelector("#impuestos table tbody");
+    tbody.innerHTML = "";
+    impuestos.forEach(i => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${i.id}</td>
+          <td>${i.nombre}</td>
+          <td>${i.porcentaje}%</td>
+          <td>
+            <button class="btn btn-sm btn-warning">Editar</button>
+            <button class="btn btn-sm btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  // ==============================
+  // CRUD de ejemplo (solo Pagos completo)
+  // ==============================
+  function addPago(nombre) {
+    const newId = pagos.length ? Math.max(...pagos.map(p => p.id)) + 1 : 1;
+    pagos.push({ id: newId, nombre });
+    renderPagos();
+  }
+
+  function editPago(id) {
+    const pago = pagos.find(p => p.id === id);
+    const nuevoNombre = prompt("Editar Medio de Pago:", pago.nombre);
+    if (nuevoNombre) {
+      pago.nombre = nuevoNombre;
+      renderPagos();
+    }
+  }
+
+  function deletePago(id) {
+    if (confirm("¿Seguro que deseas eliminar este medio de pago?")) {
+      pagos = pagos.filter(p => p.id !== id);
+      renderPagos();
+    }
+  }
+
+  // ==============================
+  // Inicialización
+  // ==============================
+  document.addEventListener("DOMContentLoaded", () => {
+    renderPagos();
+    renderSeries();
+    renderMonedas();
+    renderUnidades();
+    renderImpuestos();
+
+    // ejemplo de guardar desde el modal de Pagos
+    const modalPago = document.querySelector("#modalPago form");
+    modalPago.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nombre = this.querySelector("input").value;
+      if (nombre.trim()) {
+        addPago(nombre);
+        this.reset();
+        bootstrap.Modal.getInstance(document.getElementById("modalPago")).hide();
+      }
+    });
+  });
+
+</script>

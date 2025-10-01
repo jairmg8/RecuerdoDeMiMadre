@@ -1,0 +1,61 @@
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80")
+      no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.login-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 400px;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out;
+}
+.login-header {
+  background: linear-gradient(45deg, #6ab04c, #badc58);
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+.login-header h2 {
+  margin: 0;
+  font-weight: bold;
+}
+.login-header p {
+  margin: 0;
+  font-size: 14px;
+}
+.form-control:focus {
+  box-shadow: 0 0 8px rgba(106, 176, 76, 0.7);
+  border-color: #6ab04c;
+}
+.btn-login {
+  background: #6ab04c;
+  border: none;
+  transition: 0.3s;
+}
+.btn-login:hover {
+  background: #58b368;
+}
+.brand-note {
+  font-size: 12px;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
