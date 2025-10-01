@@ -1,99 +1,158 @@
-<!-- 🔹 Modal Login -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content shadow p-4">
-          <!-- Alerta registro exitoso -->
-          <div
-            id="alertaRegistro"
-            class="alert alert-success text-center d-none"
-            role="alert"
-          >
-            ✅ Registro exitoso. Ahora puedes iniciar sesión.
-          </div>
-
-          <!-- Formulario login -->
-          <h3 class="text-center mb-4">Iniciar Sesión</h3>
-          <form id="loginForm">
-            <div class="mb-3">
-              <label for="username" class="form-label">Usuario</label>
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                placeholder="Ingresa tu usuario"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Contraseña</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                placeholder="Ingresa tu contraseña"
-                required
-              />
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="remember" />
-              <label class="form-check-label" for="remember">Recordarme</label>
-            </div>
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Ingresar</button>
-            </div>
-          </form>
-
-          <hr class="my-4" />
-          <p class="text-center mb-0">
-            ¿No tienes cuenta?
-            <a href="#" id="linkRegistro">Regístrate</a>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🔹 Modal Registro -->
-    <div class="modal fade" id="registroModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content shadow">
-          <div class="modal-header">
-            <h5 class="modal-title">Registro de Usuario</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="registroForm">
-              <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre completo</label>
-                <input type="text" class="form-control" id="nombre" required />
+<!-- MÓDULO DE GESTIÓN DE USUARIOS -->
+<div class="user-module">
+  <div class="container">
+    <!-- Header del módulo -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h2 class="mb-3">
+          <i class="bi bi-people-fill"></i> Gestión de Usuarios
+        </h2>
+        <div class="card">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-6 mb-3 mb-md-0">
+                <div class="search-box">
+                  <i class="bi bi-search"></i>
+                  <input
+                    type="text"
+                    id="searchInput"
+                    class="form-control"
+                    placeholder="Buscar usuarios..."
+                  />
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="email" required />
-              </div>
-              <div class="mb-3">
-                <label for="usuario" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usuario" required />
-              </div>
-              <div class="mb-3">
-                <label for="clave" class="form-label">Contraseña</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="clave"
-                  required
-                />
-              </div>
-              <div class="d-grid">
-                <button type="submit" class="btn btn-success">
-                  Registrarme
+              <div class="col-md-6 text-md-end">
+                <button
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#userModal"
+                  onclick="openAddModal()"
+                >
+                  <i class="bi bi-plus-circle"></i> Nuevo Usuario
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Tabla de usuarios -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover" id="usersTable">
+                <thead class="table-light">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th class="text-center">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="userTableBody">
+                  <!-- Los usuarios se cargan dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+            <div
+              id="noResults"
+              class="text-center text-muted py-4"
+              style="display: none"
+            >
+              <i class="bi bi-inbox" style="font-size: 3rem"></i>
+              <p class="mt-2">No se encontraron usuarios</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Crear/Editar Usuario -->
+<div class="modal fade" id="userModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Nuevo Usuario</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="userForm">
+          <input type="hidden" id="userId" />
+          <div class="mb-3">
+            <label for="userName" class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" id="userName" required />
+          </div>
+          <div class="mb-3">
+            <label for="userEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="userEmail" required />
+          </div>
+          <div class="mb-3">
+            <label for="userRole" class="form-label">Rol</label>
+            <select class="form-select" id="userRole" required>
+              <option value="">Seleccionar rol</option>
+              <option value="Admin">Administrador</option>
+              <option value="Editor">Editor</option>
+              <option value="Usuario">Usuario</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="userStatus" class="form-label">Estado</label>
+            <select class="form-select" id="userStatus" required>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" onclick="saveUser()">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Confirmación para Eliminar -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">Confirmar Eliminación</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de que deseas eliminar este usuario?</p>
+        <p class="text-muted mb-0">Esta acción no se puede deshacer.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-danger" id="confirmDelete">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./pages/usuarios/usuarios.js"></script>

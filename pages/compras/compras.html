@@ -1,0 +1,118 @@
+<link href="/css/pages/compras.css" rel="stylesheet">
+
+<div class="container mt-4">
+    <h1 class="page-title text-center mb-4">Gestión de Compras a Proveedores</h1>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="section-title mb-0">
+                <i class="fas fa-shopping-cart me-2"></i>
+                <span id="form-title">Registrar Nueva Compra</span>
+            </h5>
+        </div>
+        <div class="card-body">
+            <form id="compraForm" class="needs-validation" novalidate>
+                <input type="hidden" id="compraId" />
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="idProveedor" class="form-label">Proveedor *</label>
+                        <select class="form-select" id="idProveedor" required>
+                            <option value="">Seleccione un Proveedor</option>
+                            </select>
+                        <div class="invalid-feedback">Seleccione un proveedor</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="idUsuario" class="form-label">Comprador (Usuario) *</label>
+                        <select class="form-select" id="idUsuario" required>
+                            <option value="">Seleccione un Usuario</option>
+                            </select>
+                        <div class="invalid-feedback">Seleccione un usuario</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tipoComprobante" class="form-label">Comprobante *</label>
+                        <select class="form-select" id="tipoComprobante" required>
+                            <option value="">Tipo de Comprobante</option>
+                            <option value="factura">Factura</option>
+                            <option value="boleta">Boleta</option>
+                            <option value="ticket">Ticket</option>
+                        </select>
+                        <div class="invalid-feedback">Seleccione un comprobante</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="numeroComprobante" class="form-label">N° Comprobante</label>
+                        <input type="text" class="form-control" id="numeroComprobante" />
+                    </div>
+                    <div class="col-md-8">
+                        <label for="observaciones" class="form-label">Observaciones</label>
+                        <textarea class="form-control" id="observaciones" rows="1"></textarea>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h6 class="section-title mb-3">Detalle de Productos</h6>
+                <div id="detalleCompra" class="mb-3">
+                    </div>
+
+                <button type="button" id="btnAddProducto" class="btn btn-sm btn-outline-info mb-3">
+                    <i class="fas fa-plus me-1"></i> Agregar Producto
+                </button>
+                
+                <div class="row g-3">
+                    <div class="col-md-4 offset-md-8">
+                        <label class="form-label">Subtotal:</label>
+                        <input type="text" class="form-control text-end" id="subtotalDisplay" value="0.00" readonly />
+                    </div>
+                    <div class="col-md-4 offset-md-8">
+                        <label for="igv" class="form-label">IGV (Impuesto):</label>
+                        <input type="number" class="form-control text-end" id="igv" value="0.00" step="0.01" />
+                    </div>
+                    <div class="col-md-4 offset-md-8">
+                        <label class="form-label fw-bold">Total Final:</label>
+                        <input type="text" class="form-control text-end fw-bold" id="totalDisplay" value="0.00" readonly />
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save me-2"></i>Guardar Compra
+                    </button>
+                    <button type="button" id="btnCancelar" class="btn btn-secondary">
+                        <i class="fas fa-times me-2"></i>Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="section-title mb-0">
+                <i class="fas fa-clipboard-list me-2"></i>Historial de Compras
+            </h5>
+            <span class="badge bg-success rounded-pill" id="totalCompras">0</span>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>N° Compra</th>
+                            <th>Proveedor</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comprasTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/compras.js" defer></script>

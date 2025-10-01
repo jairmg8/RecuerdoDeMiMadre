@@ -1,0 +1,46 @@
+.user-module {
+  padding: 40px 0;
+  background-color: #f8f9fa;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.btn-action {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.table-responsive {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.badge-status {
+  padding: 6px 12px;
+  font-weight: 500;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.search-box input {
+  padding-left: 45px;
+}

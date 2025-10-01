@@ -1,0 +1,122 @@
+ <div class="container">
+        <h1 class="page-title text-center mb-4">Gestión de Productos</h1>
+        
+        <!-- Formulario de productos -->
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="section-title mb-0">
+                    <i class="fas fa-box-open me-2"></i>
+                    <span id="form-title">Nuevo Producto</span>
+                </h5>
+            </div>
+            <div class="card-body">
+                <form id="productoForm" class="needs-validation" novalidate>
+                    <input type="hidden" id="productoId">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="nombre" class="form-label">Nombre *</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                            <div class="invalid-feedback">
+                                El nombre es obligatorio
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="precio" class="form-label">Precio *</label>
+                            <input type="number" step="0.01" class="form-control" id="precio" required>
+                            <div class="invalid-feedback">
+                                El precio es obligatorio
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="stock" class="form-label">Stock *</label>
+                            <input type="number" class="form-control" id="stock" required>
+                            <div class="invalid-feedback">
+                                El stock es obligatorio
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="categoria" class="form-label">Categoría *</label>
+                            <input type="text" class="form-control" id="categoria" required>
+                            <div class="invalid-feedback">
+                                La categoría es obligatoria
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="marca" class="form-label">Marca *</label>
+                            <input type="text" class="form-control" id="marca" required>
+                            <div class="invalid-feedback">
+                                La marca es obligatoria
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="descripcion">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check mt-4">
+                                <input class="form-check-input" type="checkbox" id="activo" checked>
+                                <label class="form-check-label" for="activo">
+                                    Producto Activo
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-4 d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Guardar
+                            </button>
+                            <button type="button" id="btnCancelar" class="btn btn-secondary">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Listado de productos -->
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="section-title mb-0">
+                    <i class="fas fa-list-alt me-2"></i>Listado de Productos
+                </h5>
+                <span class="badge bg-primary rounded-pill" id="totalProductos">0</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Categoría</th>
+                                <th>Marca</th>
+                                <th>Activo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productosTableBody">
+                            <!-- Los productos se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast-container">
+        <div id="notification" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i id="notificationIcon" class="fas fa-check-circle me-2"></i>
+                    <span id="notificationMessage"></span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+<script src="js/productos.js"></script>

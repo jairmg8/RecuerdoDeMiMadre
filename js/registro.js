@@ -3,19 +3,12 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
   window.location.href = "htm.html";
 });
 
-
 document.getElementById("registroForm").addEventListener("submit", function (event) {
   event.preventDefault();
-
-
   var modal = bootstrap.Modal.getInstance(document.getElementById('registroModal'));
   modal.hide();
-
-
   var alerta = document.getElementById("alertaRegistro");
   alerta.classList.remove("d-none");
-
-
   setTimeout(() => {
     alerta.classList.add("d-none");
   }, 4000);

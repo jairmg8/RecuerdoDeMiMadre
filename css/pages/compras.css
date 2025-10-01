@@ -1,0 +1,19 @@
+.page-title {
+    color: #198754;
+    font-weight: 700;
+}
+
+.section-title {
+    color: #495057;
+}
+
+#totalDisplay {
+    font-size: 1.25rem;
+    color: #dc3545;
+    background-color: #f8f9fa;
+    border: 1px solid #dc3545;
+}
+
+.btn-action {
+    margin-right: 5px;
+}
